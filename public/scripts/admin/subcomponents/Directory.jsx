@@ -7,8 +7,8 @@ var Directory = React.createClass({
   componentDidMount: function() {
     this.props.refreshDashboard();
   },
-  memberClick: function(self) {
-    this.transitionTo('editUser', {user: self.props.data.id});
+  memberClick: function(id) {
+    this.transitionTo('editUser', {user: id});
   },
   render: function() {
     var members;

@@ -18,7 +18,7 @@ var UserForm = React.createClass({
     e.preventDefault();
 
     var member = utils.pullRefs(this.refs, FORM_REFS);
-    // Validation
+    // Return if required fields are not put in
     if (!member) {
       return;
     }
@@ -67,12 +67,13 @@ var UserForm = React.createClass({
 });
 
 var FORM_REFS = {
-  required: [],
-  optional: [
+  required: [
     'first_name',
     'last_name',
+    'email'
+  ],
+  optional: [
     'title',
-    'email',
     'phone'
   ]
 };

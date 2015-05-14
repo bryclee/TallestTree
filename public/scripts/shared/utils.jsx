@@ -44,7 +44,7 @@ var pullRefs = function(refs, fields) {
   return props;
 };
 
-// A generic helper function to make an ajax request
+// A generic helper function to make an ajax request. This helper function is for if the request making function is switched from jquery to another library
 var makeRequest = function(params) {
   $.ajax({
     url: params.url,
@@ -54,7 +54,7 @@ var makeRequest = function(params) {
     error: function(jqXHR, status, error) {
       console.error(jqXHR.responseText);
       if (params.error) {
-        params.error(jqXHR.responseText);
+        params.error(jqXHR, status, error);
       }
     }
   });

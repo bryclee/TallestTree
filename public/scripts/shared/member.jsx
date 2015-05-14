@@ -3,7 +3,7 @@ var React = require('react');
 
 var Member = React.createClass({
   handleClick: function(e) {
-    this.props.memberClick(this);
+    this.props.memberClick(this.props.data.id);
   },
   render: function() {
     return (

@@ -46,13 +46,13 @@ var Dashboard = React.createClass({
         this.setState(state);
       }.bind(this),
       error: function(jqXHR, status, error) {
-        switch (jqXHR.statusCode) {
+        switch (jqXHR.status) {
           case 401: // Unauthorized, user not logged in
             this.transitionTo('/');
             break;
           default: // Display default error
         }
-      }
+      }.bind(this)
     });
   },
   render: function() {
