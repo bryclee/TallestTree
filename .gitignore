@@ -21,6 +21,7 @@ coverage
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 public/build/
+public/fonts/glyphicons-*
 build/Release
 
 # Dependency directory
@@ -28,3 +29,6 @@ build/Release
 node_modules
 
 server/config/config.js
+server/db/chimeTeam.sql
+
+.DS_Store

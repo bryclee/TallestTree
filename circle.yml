@@ -1,0 +1,5 @@
+machine:
+  environment:
+    DATABASE_TEST_URL: postgres://ubuntu@localhost/circle_test
+    SESSION_SECRET: 'foobarbydonthurtme'
+    NODE_ENV: 'test'

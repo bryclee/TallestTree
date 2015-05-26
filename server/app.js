@@ -6,11 +6,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var session = require('express-session');
+var pg = require('pg');
+var pgSession = require('connect-pg-simple')(session);
+var config = process.env.NODE_ENV === 'test' ? (process.env.DATABASE_TEST_URL || require('./config/config').testdb.config) : (process.env.DATABASE_URL || require('./config/config').proddb.config);
 
 var app = express();
 
 app.use(favicon(path.join(__dirname, '../public/images/favicon.ico')));
-app.use(logger('dev'));
+if (process.env.NODE_ENV !== 'test') {
+  // Suppresses logger while testing to clean up output
+  app.use(logger('dev'));
+}
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -18,7 +24,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
 var secret = process.env.SESSION_SECRET || require('./config/config').session_secret;
-app.use(session({ secret: secret }));
+app.use(session({
+  store: new pgSession({
+    pg: pg,
+    conString: config,
+    ttl: 1000*365*24*60*60, // 1000 years as workaround for never expiring
+    pruneSessionInterval: false // Don't automatically remove expired sessions
+  }),
+  secret: secret,
+  resave: false,
+  saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -27,21 +43,19 @@ app.get('/client', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-  res.sendFile('index.html', {root: path.join(__dirname, '../public')});
+  res.sendFile('admin.html', {root: path.join(__dirname, '../public')});
 });
 
-var apiRouter = express.Router();
-app.use('/api', apiRouter);
-require('./api/apiRoutes.js')(apiRouter);
+require('./routers/apiRouter')(app);
 
-// catch 404 and forward to error handler
+// Catches 404 and forwards to error handler
 app.use(function(req, res, next) {
   var error = new Error('Not Found');
   error.status = 404;
   next(error);
 });
 
-// error handler
+// Error handler
 app.use(function(error, req, res, next) {
   res.status(error.status || 500);
 });

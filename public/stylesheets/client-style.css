@@ -1,0 +1,329 @@
+@font-face {
+    font-family: "Montserrat-Hairline";
+    src: url(../fonts/Montserrat-Hairline.otf) format("truetype");
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  font-family: "Helvetica Neue", "Montserrat-Hairline", sans-serif;
+  min-width: 600px;
+  min-height: 100vh;
+  width: auto;
+  background: rgb(153,153,153); /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  rgba(153,153,153,1) 0%, rgba(56,56,56,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(153,153,153,1)), color-stop(100%,rgba(56,56,56,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg,  rgba(153,153,153,1) 0%,rgba(56,56,56,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg,  rgba(153,153,153,1) 0%,rgba(56,56,56,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg,  rgba(153,153,153,1) 0%,rgba(56,56,56,1) 100%); /* IE10+ */
+  background: linear-gradient(135deg,  rgba(153,153,153,1) 0%,rgba(56,56,56,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#383838',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+.header {
+  margin-top: 0;
+  height: 0;
+}
+
+.welcome-wrapper {
+  padding: 0 0;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+.welcome-content {
+  padding: 0 15px;
+}
+
+.middle {
+  min-height: 100%;
+}
+
+.footer {
+  margin-bottom: 0;
+  height: 0;
+}
+
+.container-fluid .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.col-xs-1-5,
+.col-sm-1-5,
+.col-md-1-5,
+.col-lg-1-5 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+@media (min-width: 0) {
+  .col-xs-1-5 {
+    width: 20%;
+    float: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-sm-1-5 {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-1-5 {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-1-5 {
+    width: 20%;
+    float: left;
+  }
+}
+
+a {
+  color: #66CCFF;
+  /*font-weight: 300;*/
+}
+
+a:hover {
+  color: #52A3CC;
+  text-decoration: none;
+}
+
+.linkColored {
+  color: #52A3CC;
+  text-decoration: none;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+label {
+  font-weight: 300;
+}
+
+.member-list {
+  margin: 20px 0;
+}
+
+.btn {
+  border: 1px solid #FFF;
+  background-color: transparent;
+  border-radius: 0;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #FFF
+}
+
+.client-input {
+  border-radius: 0;
+}
+
+@media screen and (min-width:992px) {
+  .client-welcome {
+    margin-top: 3vh;
+    color: #FFF;
+  }
+  .client-org-logo-welcome {
+    margin-top: 7vh;
+    width: 100%;
+  }
+  .client-huge {
+    font-size: 6.0vw;
+    font-weight: 100;
+  }
+  .client-large {
+    font-size: 3.5vw;
+    font-weight: 100;
+  }
+
+  .client-medium {
+    font-size: 1.9vw;
+    font-weight: 100;
+  }
+  .client-avatar-name {
+    font-size: 1.5vw;
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  .client-avatar-position {
+    font-weight: 100;
+    font-size: 1.5vw;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width:991px) {
+  .client-welcome {
+    margin-top: 1vh;
+    color: #FFF;
+  }
+  .client-org-logo-welcome {
+    margin-top: 2vh;
+    width: 65%;
+  }
+  .client-huge {
+    font-size: 8vw;
+    font-weight: 100;
+  }
+  .client-large {
+    font-size: 4vw;
+    font-weight: 100;
+  }
+  .client-medium {
+    font-size: 2.5vw;
+    font-weight: 100;
+  }
+  .client-avatar-name {
+    font-size: 2.0vw;
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  .client-avatar-position {
+    font-weight: 100;
+    font-size: 2.0vw;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+}
+
+.client-small {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 1.2em;
+}
+
+.client-app-logo {
+  width: 75%;
+  margin-top: 5px;
+}
+
+.client-directory {
+  margin-top: 50px;
+  margin-bottom: 150px;
+  padding-top: 50px;
+  color: #FFF;
+  border: solid 1px #FFF;
+}
+
+.client-directory-intro {
+  margin-top: 100px;
+  color: #FFF;
+}
+
+.client-ping {
+  color: #FFF;
+  margin-top: 0;
+  margin-bottom: 100px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  border: solid 1px #FFF;
+}
+
+.client-ping-form {
+  padding-top: 50px;
+}
+
+.client-ping-avatar {
+  margin-top: 20px;
+  border: solid 1px #FFF;
+  width: 75%;
+  height: auto;
+}
+
+.client-button {
+  margin-top: 30px;
+  color: #FFF;
+}
+
+.client-avatar-photo {
+  border: solid 1px #FFF;
+  width: 75%;
+}
+
+.client-avatar-footer {
+  width: 100%;
+  margin-top: 5px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.client-contact {
+  padding-top: 20px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 30px;
+}
+
+.client-contact:hover {
+  background-color: #808080;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+.test {
+  border: solid 1px #000;
+}
+
+/* Spinner CSS */
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 40px auto;
+  margin-bottom: 0;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: bounce 2.0s infinite ease-in-out;
+  animation: bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}

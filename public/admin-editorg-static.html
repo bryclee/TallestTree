@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chime</title>
+    <link rel="stylesheet" href="build/admin-bundle.min.css" />
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+  </head>
+
+  <body>
+
+    <div class="main-content container-fluid">
+
+      <section class="row dashboard-photo-background">
+
+        <nav class="navbar navbar-default dashboard-navbar">
+          <div class="container-fluid">
+            <div class="col-xs-1 col-xs-push-1 navbar-header">
+              <a href=""><img class="dashboard-navbar-app-logo" src="images/logo_03.png"></a>
+            </div>
+            <div class="nav navbar-nav navbar-right col-xs-2 col-xs-pull-1 col-lg-1 col-lg-pull-1">
+              <button class="btn btn-navbar dashboard-small dashboard-navbar-button">Log Out</button>
+            </div>
+          </div>
+        </nav>
+
+        <div class="col-xs-8 col-xs-push-2 dashboard-content">
+
+          <div class="row text-center dashboard-large">ORGANIZATION INFO</div>
+
+          <form class="dashboard-ping-form col-xs-10 col-xs-push-1 col-md-8 col-md-push-2 col-lg-6 col-lg-push-3">
+            <div class="form-group">
+              <label for="your-name" class="text-left dashboard-medium">Organization Name:</label>
+              <input type="email" class="dashboard-input form-control dashboard-small" id="your-name">
+            </div>
+            <div class="form-group">
+              <label for="your-message" class="text-left dashboard-medium">Logo (URL):</label>
+              <input type="text" class="dashboard-input form-control dashboard-small" id="your-message">
+            </div>
+            <div class="form-group">
+              <label for="your-message" class="text-left dashboard-medium">Welcome Message:</label>
+              <input type="text" class="dashboard-input form-control dashboard-small" id="your-message">
+            </div>
+            <div class="col-md-6">
+              <button type="submit" class="btn btn-default dashboard-medium dashboard-button-medium">Submit</button>
+            </div>
+            <div class="col-md-6">
+              <button type="submit" class="btn btn-default dashboard-medium dashboard-button-medium">Cancel</button>
+            </div>
+            <div class="col-xs-12 col-md-8 col-md-push-2">
+              <button type="submit" class="btn btn-default dashboard-medium dashboard-button-medium dashboard-button-red">Delete Organization</button>
+            </div>
+          </form>
+
+        </div>
+
+      </section>
+
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="scripts/admin/jquery.easybg.js"></script>
+    <script>
+      $(window).load(function(){
+      $('.dashboard-photo-background').easybg({
+      images: [ // an array of background dimages
+      'images/01r.jpg',
+      'images/02r.jpg',
+      'images/03r.jpg',
+      'images/04r.jpg'
+      ],
+      interval: 10000,
+      speed : 1000, // 1 minute
+      ignoreError : false,
+      changeMode : 'normal', // normal or random
+      initIndex : 0,
+      cloneClassId : null,
+      cloneClassName : 'easybgClone',
+      debug : false
+      });
+      });
+    </script>
+  </body>
+</html>

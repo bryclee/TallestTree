@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chime</title>
+    <link rel="stylesheet" href="build/admin-bundle.min.css" />
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+  </head>
+
+  <body>
+
+    <div class="main-content container-fluid">
+
+      <section class="row dashboard-photo-background">
+
+        <nav class="navbar navbar-default dashboard-navbar">
+          <div class="container-fluid">
+            <div class="col-xs-1 col-xs-push-1 navbar-header">
+              <a href=""><img class="dashboard-navbar-app-logo" src="images/logo_03.png"></a>
+            </div>
+            <div class="nav navbar-nav navbar-right col-xs-2 col-xs-pull-1 col-lg-1 col-lg-pull-1">
+              <button class="btn btn-navbar dashboard-small dashboard-navbar-button">Log Out</button>
+            </div>
+          </div>
+        </nav>
+
+        <div class="col-xs-8 col-xs-push-2 dashboard-content">
+
+          <div class="row text-center dashboard-large">ADD USER</div>
+
+          <div class="row dashboard-directory">
+
+            <form class="col-xs-10 col-xs-push-1 col-md-6 col-md-push-3">
+
+              <div class="form-group">
+                <label class="text-left dashboard-medium">First Name:</label>
+                <input type="text" class="dashboard-input form-control dashboard-small">
+              </div>
+
+              <div class="form-group">
+                <label class="text-left dashboard-medium">Last Name:</label>
+                <input type="text" class="dashboard-input form-control dashboard-small">
+              </div>
+
+              <div class="form-group">
+                <label class="text-left dashboard-medium">Title:</label>
+                <input type="text" class="dashboard-input form-control dashboard-small">
+              </div>
+
+              <div class="form-group">
+                <label class="text-left dashboard-medium">Phone number:</label>
+                <input type="text" class="dashboard-input form-control dashboard-small">
+              </div>
+
+              <div class="form-group">
+                <label class="text-left dashboard-medium">Email:</label>
+                <input type="email" class="dashboard-input form-control dashboard-small">
+              </div>
+
+              <div class="col-xs-6 col-xs-push-3 col-md-8 col-md-push-2">
+                <button type="submit" class="btn btn-default dashboard-medium dashboard-button-medium">Add User</button>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="scripts/admin/jquery.easybg.js"></script> 
+    <script>
+      $(window).load(function(){
+      $('.dashboard-photo-background').easybg({
+      images: [ // an array of background dimages
+      'images/01r.jpg',
+      'images/02r.jpg',
+      'images/03r.jpg',
+      'images/04r.jpg'
+      ],
+      interval: 10000,
+      speed : 1000, // 1 minute
+      ignoreError : false,
+      changeMode : 'normal', // normal or random
+      initIndex : 0,
+      cloneClassId : null,
+      cloneClassName : 'easybgClone',
+      debug : false
+      });
+      });
+    </script>
+  </body>
+</html>

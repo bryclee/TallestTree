@@ -4,22 +4,31 @@ var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 var Navigation = Router.Navigation;
+var Redirect = Router.Redirect;
 
 // Components for Login page
+var LoginContainer = require('./subcomponents/LoginContainer.jsx');
 var LoginForm = require('./subcomponents/LoginForm.jsx');
 var SignupForm = require('./subcomponents/SignupForm.jsx');
 
 // Components for the dashboard
+var Landing = require('./landing.jsx');
 var Dashboard = require('./dashboard.jsx');
 var Directory = require('./subcomponents/Directory.jsx');
 var AddForm = require('./subcomponents/AddForm.jsx');
+var EditForm = require('./subcomponents/EditForm.jsx');
+var DeleteUserConfirm = require('./subcomponents/DeleteUserConfirm.jsx');
+var AddOrgForm = require('./subcomponents/AddOrgForm.jsx');
+var EditOrgForm = require('./subcomponents/EditOrgForm.jsx');
+var DeleteOrgConfirm = require('./subcomponents/DeleteOrgConfirm.jsx');
+var ChangePasswordForm = require('./subcomponents/ChangePasswordForm.jsx');
+var SectionRotatingBg = require('./subcomponents/RotatingBg.jsx');
 
 // Main content class that holds everything on the page
 var App = React.createClass({
   render: function() {
     return (
-      <div>
-        <h1>Chime</h1>
+      <div className="main-content container-fluid">
         <RouteHandler />
       </div>
     );
@@ -28,24 +37,33 @@ var App = React.createClass({
 
 // The routes that the index page will use
 var routes = (
-  <Route ignoreScrollBehavior handler={App}>
-    <Route path="/" handler={LoginForm} />
-    <Route name="signup" path="/signup" handler={SignupForm} />
-    <Route name="dashboard" handler={Dashboard}>
+  <Route path="/" handler={App}>
+    <DefaultRoute handler={Landing} />
+    <Route name="login" path="/login" handler={LoginContainer}>
+      <DefaultRoute handler={LoginForm} />
+      <Route name="signup" path="/signup" handler={SignupForm} />
+      <Route name="addOrg" path="/signup/add" handler={AddOrgForm} />
+    </Route>
+    <Route name="dashboard" path="/dashboard" handler={Dashboard}>
       <DefaultRoute handler={Directory} />
-      <Route name="add" handler={AddForm} />
-      <Route name="edit" path="edit/:user" handler={AddForm} />
+      <Route name="addUser" path="add" handler={AddForm} />
+      <Route name="editUser" path="edit/:user" handler={EditForm} />
+      <Route name="deleteUser" path="deleteUser/:user" handler={DeleteUserConfirm} />
+      <Route name="editOrg" path="organization" handler={EditOrgForm} />
+      <Route name="deleteOrg" path="deleteOrg" handler={DeleteOrgConfirm} />
+      <Route name="changePassword" path="changePassword" handler={ChangePasswordForm} />
     </Route>
   </Route>
 );
 
 // Create a router instance to be able to access the history location and transition routes
 var router = Router.create({
+  scrollBehavior: Router.ScrollToTopBehavior,
   routes: routes,
   location: Router.HashLocation
 });
 
 // Render the Login form on the page
 router.run(function(Handler) {
-  React.render(<Handler />, document.getElementsByClassName('main-content')[0]);
+  React.render(<Handler />, document.body);
 });

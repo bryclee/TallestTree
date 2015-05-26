@@ -19,16 +19,27 @@ module.exports = {
     });
   },
 
-  loggedIn: function(req, res, next) {
-    if (req.isAuthenticated()) {
+  // Admin mode can demote to client mode, which prevents going back to view or edit information
+  loggedInAdmin: function(req, res, next) {
+    if (req.isAuthenticated() && req.session.passport.user.admin_only) {
       next();
-    } else {
-      res.redirect('/login');
+    } else if (req.isAuthenticated()) {
+      res.status(401).end('Logged in as client');
+    }
+    else {
+      res.status(401).end('Not logged in');
     }
   },
 
-  isLoggedIn: function(req, res, next) {
-    res.set('loggedIn', req.isAuthenticated());
-    next();
+  // Forces admin to demote permissions in order to start client to prevent information leaks
+  loggedInClient: function(req, res, next) {
+    if (req.isAuthenticated() && !req.session.passport.user.admin_only) {
+      next();
+    } else if (req.isAuthenticated()) {
+      res.status(401).end('Logged in as admin');
+    } else {
+      res.status(401).end('Not logged in');
+    }
   }
+
 };
